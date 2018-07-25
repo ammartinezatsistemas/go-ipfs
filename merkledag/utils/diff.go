@@ -5,9 +5,10 @@ import (
 	"fmt"
 	"path"
 
+	coreiface "github.com/ipfs/go-ipfs/core/coreapi/interface"
 	dag "github.com/ipfs/go-ipfs/merkledag"
 
-	cid "gx/ipfs/QmYVNvtQkeZ6AKSwDrjQTs432QtL6umrrK41EBq3cu7iSP/go-cid"
+	"gx/ipfs/QmYVNvtQkeZ6AKSwDrjQTs432QtL6umrrK41EBq3cu7iSP/go-cid"
 	ipld "gx/ipfs/QmZtNq8dArGfnpCZfx2pUNY7UcjGhVp5qqwQ4hH6mpTMRQ/go-ipld-format"
 )
 
@@ -21,7 +22,7 @@ const (
 // Change represents a change to a DAG and contains a reference to the old and
 // new CIDs.
 type Change struct {
-	Type   int
+	Type   coreiface.ChangeType
 	Path   string
 	Before *cid.Cid
 	After  *cid.Cid
